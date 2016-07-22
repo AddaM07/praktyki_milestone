@@ -1,0 +1,60 @@
+<div class="alert alert-success" ng-show="registerCtrl.success">
+    <strong>Zarejestrowano pomyślnie!</strong> Sprawdź swój E-mail w celu potwierdzenia.
+</div>
+<div class="alert alert-danger" ng-show="registerCtrl.error">
+    <strong>Nie udało się zarejestrować!</strong> Spróbuj ponownie później.
+</div>
+<div class="alert alert-danger" ng-show="registerCtrl.errorUserExists">
+    <strong>Podana nazwa użytkownika jest już zarejestrowania!</strong> Wybierz inną nazwę.
+</div>
+<div class="alert alert-danger" ng-show="registerCtrl.errorEmailExists">
+    <strong>Podany E-mail jest już w użyciu!</strong> Wybierz inny adres E-mail.
+</div>
+<div class="alert alert-danger" ng-show="registerCtrl.doNotMatch">
+    Hasło i jego potwierdzenie nie są takie same!
+</div>
+
+<div class="center">
+    <div class="header">
+        <span class="glyphicon glyphicon-unchecked"></span>
+        <strong>Materil</strong>
+    </div>
+    <form ng-show="!registerCtrl.success" class="center-panel" md-whiteframe="2" ng-submit="registerCtrl.register()">
+        <div class="center-panel-header">Zarejestruj się</div>
+        <md-input-container>
+            <label>Nazwa użytkownika</label>
+            <input ng-model="registerCtrl.registerAccount.login"
+            minlength="1"
+            maxlength="50" 
+            required>
+        </md-input-container>
+        <md-input-container>
+            <label>E-mail</label>
+            <input type="email" 
+            ng-model="registerCtrl.registerAccount.email" 
+            minlength="5"
+            maxlength="100" 
+            required>
+        </md-input-container>
+        <md-input-container>
+            <label>Nowe hasło</label>
+            <input type="password" 
+            ng-model="registerCtrl.registerAccount.password" 
+            minlength="4"
+            maxlength="50" 
+            required>
+        </md-input-container>
+        <md-input-container>
+            <label>Potwierdź nowe hasło</label>
+            <input type="password" 
+            ng-model="registerCtrl.confirmPassword" 
+            minlength="4"
+            maxlength="50" 
+            required>
+        </md-input-container>
+        <md-button type="submit" class="md-raised md-warn center-panel-submit">Zarejestruj</md-button>
+    </form>
+    <div class="footer">
+        <div class="footer-login" ui-sref="login">Masz już konto? <strong>ZALOGUJ SIĘ</strong></div>
+    </div>
+</div>

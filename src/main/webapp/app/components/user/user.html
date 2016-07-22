@@ -1,0 +1,101 @@
+<md-toolbar class="register_dialog-toolbar">
+    <md-toolbar-tools ng-switch="vm.isNewUser">
+        <span ng-switch-when="true">Nowy użytkownik</span>
+        <span ng-switch-when="false">Aktualizacja użytkownika</span>
+        <span class="glyphicon glyphicon-remove" ng-click="vm.closeRegisterDialog()"></span>
+    </md-toolbar-tools>
+</md-toolbar>
+
+<md-dialog-content>
+    <!-- ALERTS -->
+    <div class="alert alert-success" ng-show="vm.success" ng-switch="vm.isNewUser">
+        <span ng-switch-when="true"><strong>Zarejestrowano pomyślnie!</strong> Sprawdź swój E-mail w celu potwierdzenia.</span>
+        <span ng-switch-when="false"><strong>Zaktualizowano pomyślnie!</strong></span>
+    </div>
+    <div class="alert alert-danger" ng-show="vm.error" ng-switch="vm.isNewUser">
+        <span ng-switch-when="true"><strong>Nie udało się zarejestrować!</strong> Spróbuj ponownie później.</span>
+        <span ng-switch-when="false"><strong>Nie udało się zaktualizować!</strong> Spróbuj ponownie później.</span>
+    </div>
+    <div class="alert alert-danger" ng-show="vm.errorUserExists">
+        <strong>Podana nazwa użytkownika jest już zarejestrowania!</strong> Wybierz inną nazwę.
+    </div>
+    <div class="alert alert-danger" ng-show="vm.errorEmailExists">
+        <strong>Podany E-mail jest już w użyciu!</strong> Wybierz inny adres E-mail.
+    </div>
+    <div class="alert alert-danger" ng-show="vm.doNotMatch">
+        Hasło i jego potwierdzenie nie są takie same!
+    </div>
+    <!-- ALERTS END -->
+
+
+	<form ng-hide="vm.success" class="user_center-panel" ng-submit="(vm.isNewUser) ? vm.registerUser(vm.User) : vm.updateUser(vm.User)">
+        <div class="center-panel-header" ng-switch="vm.isNewUser">
+            <span ng-switch-when="true">Zarejestruj użytkownika</span>
+            <span ng-switch-when="false">Aktualizuj użytkownika</span>
+        </div>
+        <md-input-container>
+            <label>Nazwa użytkownika</label>
+            <input 
+            ng-model="vm.User.login"
+            minlength="1"
+            maxlength="50"
+            required>
+        </md-input-container>
+        <md-input-container>
+            <label>Imię</label>
+            <input 
+            ng-model="vm.User.firstName"
+            minlength="1"
+            maxlength="50"
+            required>
+        </md-input-container>
+        <md-input-container>
+            <label>Nazwisko</label>
+            <input 
+            ng-model="vm.User.lastName"
+            required>
+        </md-input-container>
+        <md-input-container>
+            <label>E-mail</label>
+            <input type="email" 
+            ng-model="vm.User.email"
+            minlength="5"
+            maxlength="100"
+            required>
+        </md-input-container>
+        <md-input-container ng-if="vm.isNewUser">
+            <label>Hasło</label>
+            <input type="password" 
+            ng-model="vm.User.password"
+            minlength="4"
+            maxlength="50"
+            required>
+        </md-input-container>
+        <md-input-container ng-if="vm.isNewUser">
+            <label>Powtórz hasło</label>
+            <input type="password" 
+            ng-model="vm.confirmPassword"
+            minlength="4"
+            maxlength="50"
+            required>
+        </md-input-container>
+        <md-input-container>
+            <label>Profil</label>
+            <md-select ng-model="vm.User.authorities">
+                <md-option ng-repeat="authority in vm.authorities" value="{{authority}}">
+                    {{authority}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+        <md-checkbox class="md-primary" ng-model="vm.User.activated">Aktywny
+        </md-checkbox>
+
+        <md-button type="submit" class="md-raised md-warn center-panel-submit" aria-label="Submit" ng-switch="vm.isNewUser" has-authority="ROLE_ADMIN">
+            <span ng-switch-when="true">Zarejestruj</span>
+            <span ng-switch-when="false">Aktualizuj</span>
+        </md-button>
+    </form>
+</md-dialog-content>
+
+
+    

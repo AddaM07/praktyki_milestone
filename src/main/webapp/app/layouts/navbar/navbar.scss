@@ -1,0 +1,41 @@
+$toolbarHeight: 70px;
+
+
+.toolbar-main {
+	height: $toolbarHeight;
+	// padding: 20px;
+	.toolbar-main-box {
+		// SEARCH CLOSE
+		.toolbar-main-box-title {
+			line-height: $toolbarHeight;
+    		padding: 0 20px;
+		}
+		.toolbar-main-box-icons {
+			// float: right;
+			margin-left: auto;
+			display: flex;
+			align-items: stretch;	
+			span {
+				cursor: pointer;
+				padding: 0 20px;
+				line-height: $toolbarHeight;
+			}
+		}
+		// SEARCH OPEN
+		.toolbar-main-boxOpen-iconBack {
+			line-height: $toolbarHeight;
+		    padding: 0 30px;
+		}
+		md-input-container {
+			label {
+				color: rgba(198, 198, 198, 0.41);
+			}
+			input {
+				border: 0;
+				color: rgb(225, 227, 243);
+				padding-right: 50px;
+			}
+		}
+	}
+	
+}

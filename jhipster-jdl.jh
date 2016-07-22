@@ -1,0 +1,15 @@
+
+
+entity Sklep {
+	nazwa String
+}
+
+entity ToDo {
+	opis String
+}
+
+relationship OneToMany {
+	Sklep to ToDo
+}
+
+	

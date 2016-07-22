@@ -1,0 +1,48 @@
+.center {
+	margin: 0 auto;
+	width: 320px;
+}
+.header {
+	font-size: 20px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    text-align: center;
+	.glyphicon {
+		margin-right: 20px;
+	}
+}
+.center-panel {
+	background-color: #fff;
+	color: rgba(0,0,0,0.87);
+	padding: 32px;
+	text-align: center;
+	border-radius: 3px;
+	margin: 0 16px;
+	margin-bottom: 20px;
+	.center-panel-header {
+		padding-bottom: 30px;
+		font-size: 13px;
+    	text-align: left;
+	}
+	md-input-container {
+		width: 100%;
+		margin: 0;
+	}
+	md-input-container:last-of-type {
+		padding-bottom: 20px
+	}
+	.center-panel-submit {
+		clear: both;
+		width: 100%;
+	    font-weight: bold;
+	    margin: 0;
+	}
+}
+.footer {
+	padding: 30px 10px;
+    text-align: center;
+	.footer-login {
+    	cursor: pointer;
+	}
+}
+

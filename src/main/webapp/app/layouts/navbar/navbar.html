@@ -1,0 +1,14 @@
+<md-toolbar class="toolbar-main" ng-switch on="navbarCtrl.isSearchOpen" layout="row" md-whiteframe="1">
+	<div flex class="toolbar-main-box" layout="row" ng-switch-when="false">
+		<div class="toolbar-main-box-title">Toolbar</div>
+		<div class="toolbar-main-box-icons">
+			<span class="glyphicon glyphicon-search" ng-click="navbarCtrl.isSearchOpen = true"></span>
+		</div>
+	</div>
+	<div flex class="toolbar-main-box" layout="row" ng-switch-when="true">
+		<span class="toolbar-main-boxOpen-iconBack glyphicon glyphicon-arrow-left" ng-click="navbarCtrl.isSearchOpen = false"></span>
+		<md-input-container md-no-float flex class="md-block">
+			<input placeholder="Search">
+		</md-input-container>
+	</div>
+</md-toolbar>

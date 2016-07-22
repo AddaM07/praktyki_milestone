@@ -1,0 +1,27 @@
+/* ==========================================================================
+Developement Ribbon
+========================================================================== */
+.ribbon {
+    background-color: $nicecolor;
+    @extend .corner;
+    box-shadow: 0 0 10px #888;
+    left: -3.5em;
+    @include transformRotate(-45deg);
+    @include box-shadow(0, 0, 10px, #888);
+    white-space: nowrap;
+    width: 15em;
+    z-index: 9999;
+    pointer-events: none;
+    a {
+        border: 1px solid #faa;
+        color: #fff;
+        display: block;
+        font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        margin: 1px 0;
+        padding: 10px 50px;
+        text-align: center;
+        text-decoration: none;
+        text-shadow: 0 0 5px #444;
+        pointer-events: none;
+    }
+}

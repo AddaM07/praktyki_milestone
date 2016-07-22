@@ -1,0 +1,24 @@
+<div class="alert alert-danger" ng-show="resetCtrl.errorEmailNotExists">
+    <strong>Podany E-Mail nie jest zarejestrowany!</strong> Sprawdź i spróbuj ponownie.
+</div>
+<div class-"alert alert-success" ng-show="resetCtrl.success == 'OK'">
+    <p>Sprawdź E-Mail w celu uzyskania szczegółów jak zresetować hasło.</p>
+</div>
+<div class="center">
+    <div class="header">
+        <span class="glyphicon glyphicon-unchecked"></span>
+        <strong>Materil</strong>
+    </div>
+    <form ng-show="!resetCtrl.success" class="center-panel" md-whiteframe="2" ng-submit="resetCtrl.requestReset()">
+        <div class="center-panel-header">Resetuj hasło</div>
+        <div class="center-panel-text">Wpisz e-mail użyty podczas rejestracji.</div>
+        <md-input-container>
+            <label>Email</label>
+            <input type="email" ng-model="resetCtrl.resetAccount.email" ng-minlength="5" maxlength="100" required>
+        </md-input-container>
+        <md-button type="submit" class="md-raised md-warn center-panel-submit">Reset hasła</md-button>
+    </form>
+    <div class="footer">
+        <div class="footer-login" ui-sref="login">Powrót do <strong>LOGOWANIA</strong></div>
+    </div>
+</div>

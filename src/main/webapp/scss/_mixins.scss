@@ -1,0 +1,22 @@
+$nicecolor: red;
+
+$sidebarBackgroundColor: #fff;
+$sidebarColor: #333;
+
+.corner {
+	overflow: hidden;
+    position: absolute;
+    top: 40px;
+}
+@mixin transformRotate($deg) {
+	-moz-transform: rotate($deg);
+    -o-transform: rotate($deg);
+    -ms-transform: rotate($deg);
+	-webkit-transform: rotate($deg);
+    transform: rotate($deg);
+}
+@mixin box-shadow($top, $left, $blur, $color) {
+	webkit-box-shadow: $top $left $blur $color;
+	moz-box-shadow: $top $left $blur $color;
+	box-shadow: $top $left $blur $color;
+}

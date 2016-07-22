@@ -1,0 +1,36 @@
+<!-- <md-button class="md-raised md-primary" aria-label="Klik" ng-click="sidebarCtrl.toggleMenu()">Toggle</md-button> -->
+<md-sidenav class="sidebar" layout="column" md-component-id="sidebar-left" ng-mouseenter="sidebarCtrl.toggleMenu(true)" ng-mouseleave="sidebarCtrl.toggleMenu(false)" ng-switch="sidebarCtrl.isAuthenticated()">
+	<md-toolbar md-whiteframe="1" ng-init="sidebarCtrl.pageScrolled()"><span class="
+glyphicon glyphicon-unchecked"></span></md-toolbar>
+	<md-content>
+		<md-list>
+			<md-list-item class="md-2-line" ng-click="sidebarCtrl.changeState('home'); sidebarCtrl.toggleMenu()">
+				<md-list-item-text>
+					<span class="list-icon glyphicon glyphicon-home"></span><span>Home</span>
+				</md-list-item-text>
+			</md-list-item>
+			<md-list-item class="md-2-line" ng-click="sidebarCtrl.dropdownToggle($event)" >
+				<md-list-item-text>
+					<span class="list-icon glyphicon glyphicon-list"></span><span>Entities</span>
+				</md-list-item-text><span class="dropdown-icon glyphicon glyphicon-triangle-bottom"></span>	
+			</md-list-item>
+			<!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
+			<!-- <ul class="dropdown-list">
+				<md-list-item class="md-1-line" ng-click="sidebarCtrl.changeState('sklep'); sidebarCtrl.toggleMenu(false)">
+					<md-list-item-text>Sklep</md-list-item-text>
+				</md-list-item>
+				<md-list-item class="md-1-line" ng-click="sidebarCtrl.changeState('to-do'); sidebarCtrl.toggleMenu(false)">
+					<md-list-item-text>ToDo</md-list-item-text>
+				</md-list-item> -->
+				<!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+			</ul>
+			<md-list-item ng-switch-when="true" class="md-2-line" ng-click="sidebarCtrl.logout()">
+				<md-list-item-text>
+					<span class="list-icon glyphicon glyphicon-log-out"></span><span>Wyloguj się</span>
+				</md-list-item-text>
+			</md-list-item>
+
+			
+		</md-list>
+	</md-content>
+</md-sidenav>

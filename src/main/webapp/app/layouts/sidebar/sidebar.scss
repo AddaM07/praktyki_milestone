@@ -1,0 +1,51 @@
+.sidebar {
+	// z-index: 60;
+	width: 64px;
+	transform: translate3d(0,0,0) !important;
+	transition: width .4s cubic-bezier(0.25,0.8,0.25,1);
+	display: block !important;
+	overflow: hidden;
+	background-color: $sidebarBackgroundColor;
+	box-shadow: 0 $toolbarHeight 5px 0 rgba(0,0,0,0.26);
+	color: $sidebarColor;
+	md-toolbar {
+		height: $toolbarHeight;
+		padding: 20px;
+	}
+	md-content {
+		overflow: hidden;
+		background-color: $sidebarBackgroundColor;
+		md-list-item {
+			md-list-item-text {
+				white-space: nowrap;
+				padding: 0 16px;
+				.list-icon {
+					margin-right: 32px;
+					font-size: 20px;
+				}
+			}
+			.dropdown-icon {
+				margin-left: auto;
+				transition: 200ms ease;
+			}
+			.dropdown-icon.open {
+				transform: rotate(-180deg);
+			}
+		}
+	}
+}
+
+
+.dropdown-list {
+	display: none;
+	padding-left: 0;
+	md-list-item-text {
+		padding-left: 40px;
+	}
+}
+md-list-item-text {
+	h3 {
+		// vendor powodował, że jest nerówno
+		margin-top: 10px;
+	}
+}

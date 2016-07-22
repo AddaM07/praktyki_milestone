@@ -1,0 +1,54 @@
+.md-dialog-backdrop {
+	display: block;
+}
+md-dialog {
+	min-width: 300px;
+	.alert-success {
+		margin: 0;
+		text-align: center;
+	}
+}
+.register_dialog-toolbar {
+	padding: 20px;
+	min-height: 0px;
+	md-toolbar-tools {
+		display: flex;
+    	align-items: center;
+    	.glyphicon {
+			margin-left: auto;
+		}
+	}
+}
+md-dialog-content {
+	max-width: 450px;
+	.user_center-panel {
+		background-color: #fff;
+		color: rgba(0,0,0,0.87);
+		padding: 32px;
+		text-align: center;
+		border-radius: 3px;
+		margin: 0;
+		.center-panel-header {
+			padding-bottom: 30px;
+			font-size: 13px;
+	    	text-align: left;
+		}
+		md-input-container {
+			width: 100%;
+			margin: 0;
+		}
+		md-input-container:last-of-type {
+			padding-bottom: 20px
+		}
+		md-checkbox {
+			float: left;
+    		margin-bottom: 30px;
+		}
+		.center-panel-submit {
+			clear: both;
+			width: 100%;
+		    font-weight: bold;
+		    margin: 0;
+		}
+	}
+}

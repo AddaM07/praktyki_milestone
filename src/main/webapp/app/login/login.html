@@ -1,0 +1,26 @@
+<div class="alert alert-danger" ng-show="loginCtrl.authenticationError">
+    <strong>Nieudane logowanie</strong> Sprawdź wprowadzone dane i spróbuj ponownie.
+</div>
+<div class="center">
+	<div class="header">
+		<span class="glyphicon glyphicon-unchecked"></span>
+		<strong>Materil</strong>
+	</div>
+	<form class="center-panel" md-whiteframe="2" ng-submit="loginCtrl.login($event)">
+		<div class="center-panel-header">Zaloguj się</div>
+		<md-input-container>
+			<label>Nazwa użytkownika</label>
+			<input ng-model="loginCtrl.username" required>
+		</md-input-container>
+		<md-input-container>
+			<label>Hasło</label>
+			<input type="password" ng-model="loginCtrl.password" required>
+		</md-input-container>
+		<md-checkbox md-no-ink class="md-primary" ng-model="loginCtrl.rememberMe">Zapamiętaj mnie</md-checkbox>
+		<md-button type="submit" class="md-raised md-warn center-panel-submit">Zaloguj</md-button>
+	</form>
+	<div class="footer">
+		<div class="footer-forgot" ui-sref="requestReset">ZAPOMNIAŁEŚ HASŁA?</div>
+		<div class="footer-new_account" ui-sref="register">Nie masz konta? <strong>UTWÓRZ KONTO</strong></div>
+	</div>
+</div>
