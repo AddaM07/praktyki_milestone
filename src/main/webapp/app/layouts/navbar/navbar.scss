@@ -1,8 +1,14 @@
-$toolbarHeight: 70px;
+$toolbarHeight: 57px;
+$toolbarBackground: #4c7ff0;
+$toolbarColor: #ddd;
 
 
 .toolbar-main {
 	height: $toolbarHeight;
+	min-height: $toolbarHeight;
+	background-color: $toolbarBackground !important;
+	color: $toolbarColor;
+	font-size: 16px;
 	// padding: 20px;
 	.toolbar-main-box {
 		// SEARCH CLOSE

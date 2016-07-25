@@ -1,9 +1,44 @@
 <!-- <md-button class="md-raised md-primary" aria-label="Klik" ng-click="sidebarCtrl.toggleMenu()">Toggle</md-button> -->
-<md-sidenav class="sidebar" layout="column" md-component-id="sidebar-left" ng-mouseenter="sidebarCtrl.toggleMenu(true)" ng-mouseleave="sidebarCtrl.toggleMenu(false)" ng-switch="sidebarCtrl.isAuthenticated()">
-	<md-toolbar md-whiteframe="1" ng-init="sidebarCtrl.pageScrolled()"><span class="
-glyphicon glyphicon-unchecked"></span></md-toolbar>
+<md-sidenav class="sidebar" md-is-locked-open="true" layout="column" md-component-id="sidebar-left">
+	
 	<md-content>
-		<md-list>
+		<div class="sidebar-title">
+			<img ui-sref="home" src="http://milestone.nyasha.me/latest/angular/images/logo.png" alt="logo">
+		</div>
+		<div class="sidebar-user" layout="row">
+			<img src="http://milestone.nyasha.me/latest/angular/images/avatar.jpg" class="sidebar-user-img">
+			<div class="sidebar-user-content" layout="row">
+				<div class="sidebar-user-content-text">
+					<div class="sidebar-user-content-text-name">Betty Simmons</div>
+					<div class="sidebar-user-content-text-role">Administrator</div>
+				</div>
+				<i class="sidebar-user-content-dropdown_icon material-icons">arrow_drop_down</i>
+			</div>
+		</div>
+		<div class="sidebar-menu_title">NAVIGATION</div>
+		<ul class="sidebar-menu">
+			<li class="sidebar-menu-item" ui-sref="home">
+				<div class="sidebar-menu-item_wrapper"layout="row">
+					<i class="sidebar-menu-item-icon material-icons text-primary">home</i>
+					<div class="sidebar-menu-item-name">Home</div>
+				</div>
+			</li>
+			<li class="sidebar-menu-item" layout="column">
+				<div class="sidebar-menu-item_wrapper" layout="row" ng-click="sidebarCtrl.dropdownToggle($event)">
+					<i class="sidebar-menu-item-icon material-icons text-success">font_download</i>
+					<div class="sidebar-menu-item-name">Apps</div>
+					<i class="sidebar-menu-item-dropdown_icon material-icons">arrow_drop_down</i>
+				</div>
+				<ul class="sidebar-menu-item-dropdown">
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Calendar</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Media</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Messages</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Social</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">People</li>
+				</ul>
+			</li>
+		</ul>
+		<!-- <md-list>
 			<md-list-item class="md-2-line" ng-click="sidebarCtrl.changeState('home'); sidebarCtrl.toggleMenu()">
 				<md-list-item-text>
 					<span class="list-icon glyphicon glyphicon-home"></span><span>Home</span>
@@ -13,7 +48,7 @@ glyphicon glyphicon-unchecked"></span></md-toolbar>
 				<md-list-item-text>
 					<span class="list-icon glyphicon glyphicon-list"></span><span>Entities</span>
 				</md-list-item-text><span class="dropdown-icon glyphicon glyphicon-triangle-bottom"></span>	
-			</md-list-item>
+			</md-list-item> -->
 			<!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
 			<!-- <ul class="dropdown-list">
 				<md-list-item class="md-1-line" ng-click="sidebarCtrl.changeState('sklep'); sidebarCtrl.toggleMenu(false)">
@@ -23,14 +58,14 @@ glyphicon glyphicon-unchecked"></span></md-toolbar>
 					<md-list-item-text>ToDo</md-list-item-text>
 				</md-list-item> -->
 				<!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
-			</ul>
-			<md-list-item ng-switch-when="true" class="md-2-line" ng-click="sidebarCtrl.logout()">
+			<!-- </ul>
+			<md-list-item class="md-2-line" ng-click="sidebarCtrl.logout()">
 				<md-list-item-text>
 					<span class="list-icon glyphicon glyphicon-log-out"></span><span>Wyloguj się</span>
 				</md-list-item-text>
 			</md-list-item>
 
 			
-		</md-list>
+		</md-list> -->
 	</md-content>
 </md-sidenav>

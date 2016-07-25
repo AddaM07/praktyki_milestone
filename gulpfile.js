@@ -28,7 +28,8 @@ var gulp = require('gulp'),
     naturalSort = require('gulp-natural-sort'),
     bowerFiles = require('main-bower-files'),
     sourcemaps = require('gulp-sourcemaps'),
-    inject = require('gulp-inject');
+    inject = require('gulp-inject'),
+    debug = require('gulp-debug');
 
 var handleErrors = require('./gulp/handleErrors'),
     serve = require('./gulp/serve'),
@@ -38,6 +39,9 @@ var handleErrors = require('./gulp/handleErrors'),
 var yorc = require('./.yo-rc.json')['generator-jhipster'];
 
 var config = require('./gulp/config');
+
+
+
 
 gulp.task('clean', function () {
     return del([config.dist], { dot: true });
@@ -94,7 +98,7 @@ gulp.task('sass', function () {
             }))
         .pipe(plumber({errorHandler: handleErrors}))
         .pipe(sourcemaps.init({'debug': true}))
-        .pipe(sass({outputStyle: 'compressed', includePaths:config.bower}).on('error', sass.logError))
+        .pipe(sass(includePaths:config.bower}).on('error', sass.logError))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(config.cssDir)),
 
@@ -105,6 +109,36 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(config.app + 'content/fonts'))
     );
 });
+
+// gulp.task('sass', function () {
+//     return es.merge(
+//         gulp.src(config.mainScss)
+//         .pipe(inject(gulp.src([config.sassSrcApp]), {
+//             starttag: '/* inject:imports */',
+//             endtag: '/* endinject */',
+//             transform: function(filepath) {
+//                 return '@import ".' + filepath + '";';
+//             }
+//         }))
+//         .pipe(plumber({ errorHandler: handleErrors }))
+//         .pipe(expect(config.mainScss))
+//         .pipe(sourcemaps.init())
+//         .pipe(sass({ includePaths: config.bower }).on('error', sass.logError))
+//         .pipe(sourcemaps.write())
+//         .pipe(gulp.dest(config.cssDir)),
+//         gulp.src(config.sassVendor)
+//         .pipe(plumber({ errorHandler: handleErrors }))
+//         .pipe(expect(config.sassVendor))
+//         .pipe(changed(config.cssDir, { extension: '.css' }))
+//         .pipe(sass({ includePaths: config.bower }).on('error', sass.logError))
+//         .pipe(gulp.dest(config.cssDir)),
+//         gulp.src(config.bower + '**/fonts/**/*.{woff,woff2,svg,ttf,eot,otf}')
+//         .pipe(plumber({ errorHandler: handleErrors }))
+//         .pipe(changed(config.app + 'content/fonts'))
+//         .pipe(flatten())
+//         .pipe(gulp.dest(config.app + 'content/fonts'))
+//     );
+// });
 
 gulp.task('languages', function () {
     var locales = yorc.languages.map(function (locale) {

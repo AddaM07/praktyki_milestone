@@ -10,7 +10,7 @@
     function stateConfig($stateProvider) {
         $stateProvider.state('app', {
             abstract: true,
-            template: '<div flex ui-view=""></div>',
+            template: '<div flex ui-view="" layout="row"></div>',
             resolve: {
                 authorize: ['Auth',
                     function (Auth) {

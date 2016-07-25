@@ -49,23 +49,15 @@
 
 
 
-        // MY EDIT
-        view.toggleMenu = function(isMenuOpen) {
-            view.isMenuOpen = isMenuOpen;
-            // $mdSidenav('sidebar-left').toggle();
-            var width = (view.isMenuOpen) ? '250px' : '64px';
-            if(!view.isMenuOpen) {
-                dropdownCloseAll();
-            }
-            $('.sidebar').css('width', width);
-        }
-
         view.dropdownToggle = function(event) {
             var jQueryElement = angular.element(event.currentTarget);
-            //bo jqueryElement to tylko przycisk wygrenerowany przez MD
-            var currentElement = jQueryElement.parent();
-            var icon = currentElement.find('.dropdown-icon').toggleClass('open');
-            currentElement.next('ul').slideToggle(200);
+            var menuItem = jQueryElement.parent();
+            var icon = menuItem.find('.sidebar-menu-item-dropdown_icon');
+            var dropdown = menuItem.find('.sidebar-menu-item-dropdown');
+
+            menuItem.toggleClass('open');
+            icon.toggleClass('open');
+            dropdown.toggleClass('open');
         }
 
         function dropdownCloseAll() {
@@ -75,19 +67,6 @@
 
         view.changeState = function(state) {
             $state.go(state);
-        }
-
-        // funkcja uruchamiana na starcie(ng-init), po scrollowaniu zawartosci przesuwa sidebarHeader oraz sidebarContent w gore(tak by zostal tylko sidebarContent)
-        view.pageScrolled = function() {
-            var contentWrapper = $('.main-block');
-            var sidebarHeader = $('.sidebar md-toolbar');
-            var sidebarContent = $('.sidebar md-content');
-            contentWrapper.scroll(function(event) {
-                var positionX = contentWrapper.scrollTop();
-                    sidebarHeader.css('top', -positionX + 'px');
-                    var contentMove = (positionX <= sidebarHeader.outerHeight()) ? positionX : sidebarHeader.outerHeight();
-                    sidebarContent.css('top', -contentMove + 'px');
-            });
         }
 
 
