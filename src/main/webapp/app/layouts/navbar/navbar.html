@@ -1,14 +1,62 @@
-<md-toolbar class="toolbar-main" ng-switch on="navbarCtrl.isSearchOpen" layout="row">
-	<div flex class="toolbar-main-box" layout="row" ng-switch-when="false">
+<md-toolbar class="toolbar-main" layout="row">
+	<div flex class="toolbar-main-box" layout="row">
 		<div class="toolbar-main-box-title">Dashboard</div>
-		<div class="toolbar-main-box-icons">
-			<span class="glyphicon glyphicon-search" ng-click="navbarCtrl.isSearchOpen = true"></span>
+		<div class="toolbar-main-box-right">
+			<div class="toolbar-main-box-right-search">
+				<div class="toolbar-main-box-right-search-form_group form-group has-feedback">
+					<input type="text" class="form-control" placeholder="Search" ng-focus="navbarCtrl.searchFocus()" ng-blur="navbarCtrl.searchBlur()">
+					<i class="material-icons form-control-feedback">search</i>
+				</div>
+			</div>
+			<div class="toolbar-main-box-right-icons" layout="row">
+				<div class="toolbar-main-box-right-icons-language" ng-click="navbarCtrl.languagesOpen()">English</div>
+				<div class="languages_dropdown_box" ng-blur="navbarCtrl.languagesClose()">
+					<ul class="languages_dropdown">
+						<li>English</li>
+						<li>Polish</li>
+					</ul>
+				</div>
+				<div class="toolbar-main-box-right-icons-notifications" ng-click="navbarCtrl.notificationsOpen()">
+					<i class="material-icons">notifications</i>
+					<span>4</span>
+				</div>
+				<div class="notifications_dropdown_box" ng-blur="navbarCtrl.notificationsClose()">
+					<ul class="notifications_dropdown">
+						<li class="notifications_dropdown-item" layout="row">
+							<i class="material-icons bg-success">arrow_upward</i>
+							<div class="notifications_dropdown-item-content">
+								<div class="notifications_dropdown-item-content-text"><strong>Sean</strong> launched a new application</div>
+								<div class="notifications_dropdown-item-content-time">2 seconds ago</div>
+							</div>
+						</li>
+						<li class="notifications_dropdown-item" layout="row">
+							<i class="material-icons bg-danger">check</i>
+							<div class="notifications_dropdown-item-content">
+								<div class="notifications_dropdown-item-content-text"><strong>Removed calendar</strong> from app list</div>
+								<div class="notifications_dropdown-item-content-time">4 hours ago</div>
+							</div>
+						</li>
+						<li class="notifications_dropdown-item" layout="row">
+							<i class="material-icons bg-danger">check</i>
+							<div class="notifications_dropdown-item-content">
+								<div class="notifications_dropdown-item-content-text"><strong>Removed calendar</strong> from app list</div>
+								<div class="notifications_dropdown-item-content-time">4 hours ago</div>
+							</div>
+						</li>
+						<li class="notifications_dropdown-item" layout="row">
+							<i class="material-icons bg-danger">check</i>
+							<div class="notifications_dropdown-item-content">
+								<div class="notifications_dropdown-item-content-text"><strong>Removed calendar</strong> from app list</div>
+								<div class="notifications_dropdown-item-content-time">4 hours ago</div>
+							</div>
+						</li>
+					</ul>
+					<div class="notifications-footer">Notifications</div>
+				</div>
+				<div class="toolbar-main-box-right-icons-messages" ng-click="navbarCtrl.rightMenuOpen()">
+					<i class="material-icons">chat_bubble</i>
+				</div>
+			</div>
 		</div>
-	</div>
-	<div flex class="toolbar-main-box" layout="row" ng-switch-when="true">
-		<span class="toolbar-main-boxOpen-iconBack glyphicon glyphicon-arrow-left" ng-click="navbarCtrl.isSearchOpen = false"></span>
-		<md-input-container md-no-float flex class="md-block">
-			<input placeholder="Search">
-		</md-input-container>
 	</div>
 </md-toolbar>

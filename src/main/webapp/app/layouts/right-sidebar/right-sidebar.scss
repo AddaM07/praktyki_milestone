@@ -1,0 +1,85 @@
+.statusCircle {
+	border-radius: 50%;
+	width: 11px;
+	height: 11px;
+	margin-left: 10px;
+	margin-right: 8px;
+	
+}
+
+
+// nie chce mi się overlay schować
+md-backdrop {
+	display: none;
+}
+
+.right-sidebar {
+	max-width: 280px;
+}
+.right-sidebar-top {
+	height: 50px;
+	padding: 16px 24px;
+	.right-sidebar-top-close {
+		float: right;
+		color: #C8C8C8;
+		font-size: 20px;
+		cursor: pointer;
+	}
+	.right-sidebar-top-close:hover {
+		color: #DCDCDC;
+	}
+}
+
+.right-sidebarWrapper {
+	height: 100%;
+	overflow: hidden;
+}
+
+.right-sidebar-contentWrapper {
+	overflow-y: auto;
+	// 100% - rightTop - rightfooter
+	height: calc(100% - (50px + 80px));
+}
+
+.right-sidebar-content-top {
+	.md-avatar {
+		margin-left: 8px;
+	}
+	.right-sidebar-content-top-name {
+		line-height: 20px;
+		font-weight: bold;
+	}
+	.right-sidebar-content-top-message {
+		line-height: 20px;
+		font-size: 12px;
+	}
+}
+.right-sidebar-content-onlineTitle {
+	padding: 4px 24px;
+}
+.right-sidebar-content-online {
+	.statusCircle-online {
+		@extend .statusCircle;
+		background-color: #4caf50;
+	}
+	.statusCircle-warning {
+		@extend .statusCircle;
+		background-color: #FFC107;
+	}
+	.statusCircle-offline {
+		@extend .statusCircle;
+		background-color: #CDCDCD;
+	}
+	.right-sidebar-content-online-name {
+		line-height: 20px;
+	}
+}
+.right-sidebar-footer {
+	height: 80px;
+	text-align: center;
+	padding-top: 20px;
+	box-shadow: 0px 5px 24px 4px rgba(0, 0, 0, 0.2);
+	.right-sidebar-footer-new_user {
+
+	}
+}

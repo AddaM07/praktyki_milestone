@@ -2,19 +2,6 @@ $sidebarBackgroundColor: #fff;
 $sidebarColor: rgba(0,0,0,0.7);
 $iconWidth: 24px;
 
-.text-primary {
-	color: #4c7ff0 !important;
-}
-.text-success {
-	color: #7fc35c !important;
-}
-.text-danger {
-	color: #d26d54 !important;
-}
-.text-warning {
-	color: #f0c54c!important;
-}
-
 
 .sidebar {
 	height: 100%;
@@ -24,9 +11,13 @@ $iconWidth: 24px;
 	width: 288px;
 	md-content {
 		overflow: hidden;
+		height: 100%;
+		width: inherit;
 		background-color: $sidebarBackgroundColor;
 		color: inherit;
 		.sidebar-title {
+			height: 60px;
+    		overflow: hidden;
 			img {
 				cursor: pointer;
 				padding: 22px;
@@ -35,6 +26,8 @@ $iconWidth: 24px;
 		.sidebar-user {
 			padding: 10px 25px;
 			cursor: pointer;
+			height: 65px;
+    		overflow: hidden;
 			.sidebar-user-img {
 				border-radius: 50%;
     			width: 45px;
@@ -57,18 +50,25 @@ $iconWidth: 24px;
 				}
 			}
 		}	
-		.sidebar-menu_title {
-			font-size: 11px;
-    		padding: 10px 25px;
-		}
 		.sidebar-menu {
 			padding: 0;
+			// 100% - .sidebar-title - .sidebar-user
+			height: calc(100% - (60px + 65px));
+		    width: inherit;
+		    box-sizing: content-box;
+		    overflow: auto;
+		    padding-right: 30px;
+		    .sidebar-menu-title {
+				font-size: 11px;
+	    		padding: 10px 25px;
+			}
 			.sidebar-menu-item {
+				width: inherit;
 				cursor:pointer;
 				.sidebar-menu-item_wrapper {
 					width: 100%;
 					align-items: center;
-					padding: 5px 25px;
+					padding: 7px 25px;
 					outline: 0;
 					.sidebar-menu-item-icon {
 
@@ -78,19 +78,25 @@ $iconWidth: 24px;
 	    				font-size: 13px;
 					}
 					.sidebar-menu-item-dropdown_icon {
-						transform: .2s cubic-bezier(.7,0,.3,1);
+						transition: transform .2s cubic-bezier(.7,0,.3,1);
 						margin-left: auto;
 					}
 					.sidebar-menu-item-dropdown_icon.open {
 						transform: rotate(-180deg);
 					}
 				}
+				.sidebar-menu-item_wrapper:hover
+				 {
+					background-color: #f7f7f7 !important;
+					color: #000;
+				}
 				
 				.sidebar-menu-item-dropdown {
-					// display: none;
+					overflow: hidden;
 					padding: 0;
 					width: 100%;
 					max-height: 0;
+					box-shadow: 4px 0px 0px 0px rgba(76,127,240,1) inset;
 					transition: max-height .5s cubic-bezier(.35,0,.25,1);
 					.sidebar-menu-item-dropdown-item {
 						padding: 9px 25px;
@@ -105,20 +111,17 @@ $iconWidth: 24px;
 				.sidebar-menu-item-dropdown.open {
 					max-height: 1000px;
 					background-color: rgba(0,0,0,.05);
-					border-left: 4px solid #4c7ff0;
 				}
+			}
+			.sidebar-menu-item.active {
+				background-color: #f7f7f7 !important;
+				color: #000;
 			}
 			.sidebar-menu-item.open {
 				.sidebar-menu-item_wrapper {
 					color: #000;
 					background-color: rgba(0,0,0,.05);
-					border-left: 4px solid #4c7ff0;
-				}
-			}
-			.sidebar-menu-item:hover {
-				.sidebar-menu-item_wrapper {
-					background-color: #f7f7f7;
-					color: #000;
+					box-shadow: 4px 0px 0px 0px rgba(76,127,240,1) inset;
 				}
 			}
 		}

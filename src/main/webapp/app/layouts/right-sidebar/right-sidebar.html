@@ -1,0 +1,43 @@
+<!-- <md-button class="md-raised md-primary" aria-label="Klik" ng-click="sidebarCtrl.toggleMenu()">Toggle</md-button> -->
+<md-sidenav class="right-sidebar md-sidenav-right" 
+`			layout="column" 
+			md-component-id="sidebar-right" 
+			md-disable-backdrop
+			md-whiteframe="4">
+	<md-content class="right-sidebarWrapper">
+		<div flex class="right-sidebar-top">
+			<strong>Members</strong>
+			<i class="right-sidebar-top-close material-icons" ng-click="rightSidebarCtrl.menuClose()">close</i>
+		</div>
+		<div class="right-sidebar-contentWrapper">
+			<md-list class="right-sidebar-content-top">
+				<md-list-item class="right-sidebar-content-top-messages md-2-line" ng-click="null">
+					<img ng-src="http://flatfull.com/themes/materil/angular/images/a1.jpg" class="md-avatar" alt="Kolo">
+					<md-list-item-text layout="column">
+						<span class="right-sidebar-content-top-name">Jonathan Doe</span>
+						<span class="right-sidebar-content-top-message">'Hey, What's up'</span>
+					</md-list-item-text>
+				</md-list-item>
+				<md-list-item class="right-sidebar-content-top-messages md-2-line" ng-click="null">
+					<img ng-src="http://flatfull.com/themes/materil/angular/images/a2.jpg" class="md-avatar" alt="Kolo2">
+					<md-list-item-text layout="column">
+						<span class="right-sidebar-content-top-name">James Pill</span>
+						<span class="right-sidebar-content-top-message">'Lorem ipsum dolor sit amet...</span>
+					</md-list-item-text>
+				</md-list-item>	
+			</md-list>
+			<span class="right-sidebar-content-onlineTitle">Work</span>
+			<md-list class="right-sidebar-content-online">
+				<md-list-item class="md-1-line" 
+				ng-repeat="user in rightSidebarCtrl.users" ng-click="rightSidebarCtrl.openUpdateDialog($event, user.login)"> 
+				<!-- | filter: {activated: true} -->
+					<span ng-class="user.activated ? 'statusCircle-online' : 'statusCircle-offline'"></span>
+					<md-list-item-text class="right-sidebar-content-online-name">{{user.login}}</md-list-item-text>
+				</md-list-item>
+			</md-list>
+		</div>
+		<div class="right-sidebar-footer">
+			<md-button class="right-sidebar-footer-new_user md-raised md-primary" ng-click="rightSidebarCtrl.openRegisterDialog($event)">Nowy użytkownik</md-button>
+		</div>
+	</md-content>
+</md-sidenav>

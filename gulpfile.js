@@ -86,59 +86,59 @@ gulp.task('images', function () {
         .pipe(browserSync.reload({stream: true}));
 });
 
-gulp.task('sass', function () {
-    return es.merge(
-        gulp.src(config.scss + '/main.scss')
-        .pipe(inject(gulp.src([config.app + 'app/**/*.scss']), {
-            starttag: '/* inject:imports */',
-            endtag: '/* endinject */',
-            transform: function(filepath) {
-                return '@import ".' + filepath + '";';
-            }
-            }))
-        .pipe(plumber({errorHandler: handleErrors}))
-        .pipe(sourcemaps.init({'debug': true}))
-        .pipe(sass(includePaths:config.bower}).on('error', sass.logError))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(config.cssDir)),
-
-        gulp.src(config.bower + '**/fonts/**/*.{woff,woff2,svg,ttf,eot,otf}')
-        .pipe(plumber({errorHandler: handleErrors}))
-        .pipe(changed(config.app + 'content/fonts'))
-        .pipe(flatten())
-        .pipe(gulp.dest(config.app + 'content/fonts'))
-    );
-});
-
 // gulp.task('sass', function () {
 //     return es.merge(
-//         gulp.src(config.mainScss)
-//         .pipe(inject(gulp.src([config.sassSrcApp]), {
+//         gulp.src(config.scss + '/main.scss')
+//         .pipe(inject(gulp.src([config.app + 'app/**/*.scss']), {
 //             starttag: '/* inject:imports */',
 //             endtag: '/* endinject */',
 //             transform: function(filepath) {
 //                 return '@import ".' + filepath + '";';
 //             }
-//         }))
-//         .pipe(plumber({ errorHandler: handleErrors }))
-//         .pipe(expect(config.mainScss))
-//         .pipe(sourcemaps.init())
-//         .pipe(sass({ includePaths: config.bower }).on('error', sass.logError))
+//             }))
+//         .pipe(plumber({errorHandler: handleErrors}))
+//         .pipe(sourcemaps.init({'debug': true}))
+//         .pipe(sass({includePaths:config.bower}).on('error', sass.logError))
 //         .pipe(sourcemaps.write())
 //         .pipe(gulp.dest(config.cssDir)),
-//         gulp.src(config.sassVendor)
-//         .pipe(plumber({ errorHandler: handleErrors }))
-//         .pipe(expect(config.sassVendor))
-//         .pipe(changed(config.cssDir, { extension: '.css' }))
-//         .pipe(sass({ includePaths: config.bower }).on('error', sass.logError))
-//         .pipe(gulp.dest(config.cssDir)),
+
 //         gulp.src(config.bower + '**/fonts/**/*.{woff,woff2,svg,ttf,eot,otf}')
-//         .pipe(plumber({ errorHandler: handleErrors }))
+//         .pipe(plumber({errorHandler: handleErrors}))
 //         .pipe(changed(config.app + 'content/fonts'))
 //         .pipe(flatten())
 //         .pipe(gulp.dest(config.app + 'content/fonts'))
 //     );
 // });
+
+gulp.task('sass', function () {
+    return es.merge(
+        gulp.src(config.mainScss)
+        .pipe(inject(gulp.src([config.sassSrcApp]), {
+            starttag: '/* inject:imports */',
+            endtag: '/* endinject */',
+            transform: function(filepath) {
+                return '@import ".' + filepath + '";';
+            }
+        }))
+        .pipe(plumber({ errorHandler: handleErrors }))
+        .pipe(expect(config.mainScss))
+        .pipe(sourcemaps.init())
+        .pipe(sass({ includePaths: config.bower }).on('error', sass.logError))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(config.cssDir)),
+        gulp.src(config.sassVendor)
+        .pipe(plumber({ errorHandler: handleErrors }))
+        .pipe(expect(config.sassVendor))
+        .pipe(changed(config.cssDir, { extension: '.css' }))
+        .pipe(sass({ includePaths: config.bower }).on('error', sass.logError))
+        .pipe(gulp.dest(config.cssDir)),
+        gulp.src(config.bower + '**/fonts/**/*.{woff,woff2,svg,ttf,eot,otf}')
+        .pipe(plumber({ errorHandler: handleErrors }))
+        .pipe(changed(config.app + 'content/fonts'))
+        .pipe(flatten())
+        .pipe(gulp.dest(config.app + 'content/fonts'))
+    );
+});
 
 gulp.task('languages', function () {
     var locales = yorc.languages.map(function (locale) {

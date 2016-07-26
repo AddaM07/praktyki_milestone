@@ -23,6 +23,39 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
     overflow: auto;
 }
 
+.text-primary {
+  color: #4c7ff0 !important;
+}
+.text-info {
+    color: #4cc3f0 !important
+}
+.text-success {
+  color: #7fc35c !important;
+}
+.text-danger {
+  color: #d26d54 !important;
+}
+.text-warning {
+  color: #f0c54c !important;
+}
+.bg-primary {
+  background-color: #4c7ff0 !important;
+}
+.bg-info {
+    background-color: #4cc3f0 !important
+}
+.bg-success {
+  background-color: #7fc35c !important;
+}
+.bg-danger {
+  background-color: #d26d54 !important;
+}
+.bg-warning {
+  background-color: #f0c54c !important;
+}
+
+
+
 
 
 

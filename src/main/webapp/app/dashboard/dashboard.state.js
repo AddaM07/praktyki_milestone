@@ -25,6 +25,11 @@
                     templateUrl: 'app/layouts/sidebar/sidebar.html',
                     controller: 'SidebarController',
                     controllerAs: 'sidebarCtrl'
+                },
+                'right-sidebar@dashboard': {
+                    templateUrl: 'app/layouts/right-sidebar/right-sidebar.html',
+                    controller: 'RightSidebarController',
+                    controllerAs: 'rightSidebarCtrl'
                 }
             }
         });

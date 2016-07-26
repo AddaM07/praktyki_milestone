@@ -55,14 +55,19 @@
             var icon = menuItem.find('.sidebar-menu-item-dropdown_icon');
             var dropdown = menuItem.find('.sidebar-menu-item-dropdown');
 
-            menuItem.toggleClass('open');
+            $('.sidebar-menu-item').not(menuItem).removeClass('open');
+            $('.sidebar-menu-item-dropdown_icon').not(icon).removeClass('open');
+            setTimeout(function(){ $('.sidebar-menu-item-dropdown').not(dropdown).removeClass('open'); }, 500);
+            // $('.sidebar-menu-item-dropdown').not(dropdown).removeClass('open');
+            
+            if(!dropdown.hasClass('open')) menuItem.toggleClass('open');
             icon.toggleClass('open');
+            //toggle boxShadow jaki pierwszy tylko przy otwieraniu, przy zamykaniu jako ostatni
             dropdown.toggleClass('open');
-        }
 
-        function dropdownCloseAll() {
-            $('.dropdown-list').css('display', 'none');
-            $('.dropdown-icon').removeClass('open');
+            // 500 bo tyle trwa animacja dropdown w css
+            if(!dropdown.hasClass('open'))  setTimeout(function(){ menuItem.toggleClass('open'); }, 500);
+            
         }
 
         view.changeState = function(state) {

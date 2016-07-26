@@ -47,5 +47,47 @@
 
         vm.isSearchOpen = false;
 
+        vm.searchFocus = function() {
+            var input = $('.toolbar-main-box-right-search-form_group input');
+            var box = input.parent('.toolbar-main-box-right-search-form_group');
+            var icon = $('.toolbar-main-box-right-search-form_group i');
+
+            
+            input.toggleClass('focus');
+            icon.toggleClass('focus');
+            box.toggleClass('focus');
+        }
+
+        vm.searchBlur = function() {
+            var input = $('.toolbar-main-box-right-search-form_group input');
+            var box = input.parent('.toolbar-main-box-right-search-form_group');
+            var icon = $('.toolbar-main-box-right-search-form_group i');
+
+            input.toggleClass('focus');
+            icon.toggleClass('focus');
+            box.toggleClass('focus');
+        }
+
+        vm.rightMenuOpen = function() {
+            $mdSidenav('sidebar-right').open();
+        }
+
+        vm.notificationsOpen = function() {
+            // tabindex potrzebne by można było dać focus na div
+            $('.notifications_dropdown_box').css('display', 'block').attr('tabindex', -1).focus();
+        }
+
+        vm.notificationsClose = function() {
+            $('.notifications_dropdown_box').css('display', 'none');
+        }
+
+        vm.languagesOpen = function() {
+            $('.languages_dropdown_box').css('display', 'block').attr('tabindex', -1).focus();
+        }
+
+        vm.languagesClose = function() {
+            $('.languages_dropdown_box').css('display', 'none');
+        }
+
     }
 })();

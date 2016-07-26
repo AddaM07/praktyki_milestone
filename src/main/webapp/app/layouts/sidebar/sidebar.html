@@ -15,10 +15,10 @@
 				<i class="sidebar-user-content-dropdown_icon material-icons">arrow_drop_down</i>
 			</div>
 		</div>
-		<div class="sidebar-menu_title">NAVIGATION</div>
 		<ul class="sidebar-menu">
-			<li class="sidebar-menu-item" ui-sref="home">
-				<div class="sidebar-menu-item_wrapper"layout="row">
+			<div class="sidebar-menu-title">NAVIGATION</div>
+			<li class="sidebar-menu-item" ui-sref="home" ui-sref-active="active">
+				<div class="sidebar-menu-item_wrapper" layout="row">
 					<i class="sidebar-menu-item-icon material-icons text-primary">home</i>
 					<div class="sidebar-menu-item-name">Home</div>
 				</div>
@@ -35,6 +35,45 @@
 					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Messages</li>
 					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Social</li>
 					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">People</li>
+				</ul>
+			</li>
+			<li class="sidebar-menu-item" layout="column">
+				<div class="sidebar-menu-item_wrapper" layout="row" ng-click="sidebarCtrl.dropdownToggle($event)">
+					<i class="sidebar-menu-item-icon material-icons text-danger">explore</i>
+					<div class="sidebar-menu-item-name">Components</div>
+					<i class="sidebar-menu-item-dropdown_icon material-icons">arrow_drop_down</i>
+				</div>
+				<ul class="sidebar-menu-item-dropdown">
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Cards</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Forms</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Tables</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Buttons</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Social buttons</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">General</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Navs</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Progress Bars</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Pagination</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Sliders</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Notifications</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Spinners</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Alerts</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Palette</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Material icons</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Fontawesome</li>
+				</ul>
+			</li>
+			<li class="sidebar-menu-item" layout="column">
+				<div class="sidebar-menu-item_wrapper" layout="row" ng-click="sidebarCtrl.dropdownToggle($event)">
+					<i class="sidebar-menu-item-icon material-icons text-warning">assessment</i>
+					<div class="sidebar-menu-item-name">Charts</div>
+					<i class="sidebar-menu-item-dropdown_icon material-icons">arrow_drop_down</i>
+				</div>
+				<ul class="sidebar-menu-item-dropdown">
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Flot</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">EasyPie</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">ChartJs</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">Rickshaw</li>
+					<li class="sidebar-menu-item-dropdown-item" ui-sref="home">C3js</li>
 				</ul>
 			</li>
 		</ul>
