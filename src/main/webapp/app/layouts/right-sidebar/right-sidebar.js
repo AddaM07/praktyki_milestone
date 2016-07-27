@@ -13,7 +13,6 @@
         view.isAuthenticated = Principal.isAuthenticated;
 
         view.users = UserService.getAllUsers();
-        console.log(view.users);
 
         view.menuClose = function() {
             $mdSidenav('sidebar-right').close();

@@ -49,6 +49,53 @@ $iconWidth: 24px;
 					margin-left: auto;
 				}
 			}
+			.user_dropdown_box {
+				position: absolute;
+			    transform: translateX(-50%);
+			    left: 50%;
+			    box-shadow: 0 2px 15px rgba(0,0,0,.1);
+			    top: 125px;
+			    width: 250px;
+			    background-color: #f7f0f0;
+			    border-radius: 2px;
+			    border: 1px solid #dddddd;
+			    color: rgba(0, 0, 0, 0.7);
+			    display: none;
+				.user_dropdown {
+					list-style: none;
+					padding: 5px 0;
+					margin: 0;
+					max-height: 230px;
+					overflow: auto;
+					li {
+						font-size: 13px;
+						padding: 4px 20px;
+						cursor: pointer;
+						span {
+						    display: inline-block;
+						    border-radius: 2px;
+						    background-color: #d26d54;
+						    color: #fff;
+						    text-align: center;
+						    font-size: 10px;
+						    width: 17px;
+						    height: 15px;
+						    float: right;
+						    line-height: 15px;
+						}
+					}
+					li:hover {
+						background-color: #e2e2e2;
+					}
+					.user_dropdown-divider {
+						clear: both;
+						    height: 1px;
+						    padding: 0;
+						    background-color: #e5e5e5;
+						    margin: 5px 0;
+					}
+				}
+			}
 		}	
 		.sidebar-menu {
 			padding: 0;

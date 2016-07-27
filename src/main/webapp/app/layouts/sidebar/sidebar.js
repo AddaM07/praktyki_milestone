@@ -10,11 +10,24 @@
     function SidebarController ($state, Auth, Principal, ProfileService, LoginService, $mdSidenav) {
         var view = this;
 
+        view.logout = logout;
+        view.$state = $state;
+        view.account = null;
+        view.isAuthenticated = null;
+        view.role = null;
 
-        view.sidebarClass = "sidebar-closed";
 
-        view.isSidebarCollapsed = true;
-        view.isAuthenticated = Principal.isAuthenticated;
+
+        getAccount();
+
+        function getAccount() {
+            Principal.identity().then(function(account) {
+                view.account = account;
+                view.isAuthenticated = Principal.isAuthenticated;
+                var findAdmin = view.account.authorities.indexOf('ROLE_ADMIN');
+                view.role = (findAdmin != -1) ? 'Administrator' : 'User';
+            });
+        }
 
 
         ProfileService.getProfileInfo().then(function(response) {
@@ -22,30 +35,12 @@
             view.swaggerDisabled = response.swaggerDisabled;
         });
 
-        view.login = login;
-        view.logout = logout;
-        view.toggleSidebar = toggleSidebar;
-        view.collapseSidebar = collapseSidebar;
-        view.$state = $state;
-
-        function login() {
-            collapseSidebar();
-            LoginService.open();
-        }
 
         function logout() {
-            // collapseSidebar();
             Auth.logout();
             $state.go('login');
         }
 
-        function toggleSidebar() {
-            view.isSidebarCollapsed = !view.isSCollapsed;
-        }
-
-        function collapseSidebar() {
-            view.isSidebarCollapsed = true;
-        }
 
 
 
@@ -72,6 +67,14 @@
 
         view.changeState = function(state) {
             $state.go(state);
+        }
+
+        view.userDropdownOpen = function() {
+            $('.user_dropdown_box').css('display', 'block').attr('tabindex', -1).focus();
+        }
+
+        view.userDropdownClose = function() {
+            $('.user_dropdown_box').css('display', 'none');
         }
 
 
